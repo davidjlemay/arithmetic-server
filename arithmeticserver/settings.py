@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'users.apps.UsersConfig',
     'accounts.apps.AccountsConfig',
     'operations.apps.OperationsConfig',
     'django.contrib.admin',
@@ -134,3 +135,7 @@ LOGOUT_REDIRECT_URL = 'home'
 # For development only
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+
+# Specify a custom model for adding extra fields to user model 
+# for login and registration
+AUTH_USER_MODEL = 'users.CustomUser'
