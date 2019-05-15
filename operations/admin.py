@@ -1,3 +1,4 @@
+"""
 from django.contrib import admin
 
 # Register your models here.
@@ -20,3 +21,4 @@ class ObjectiveAdmin(admin.ModelAdmin):
 
 admin.site.register(Objective, ObjectiveAdmin)
 admin.site.register(Question, QuestionAdmin)
+"""

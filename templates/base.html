@@ -1,10 +1,17 @@
+{% load render_bundle from webpack_loader %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  {% block title %}<title>Arithmetic</title>{% endblock %}
-</head>
-<body>
-  {% block sidebar %}<!-- insert default navigation text for every page -->{% endblock %}
-  {% block content %}<!-- default content text (typically empty) -->{% endblock %}
-</body>
-</html>
+<html>
+  <head>
+    <meta charset=utf-8>
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <title>arithmetic-client</title>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but Arithmetic doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    {% block content %}
+    {% endblock %}
+    {% render_bundle 'app' %}
+  </body>
+  </html>

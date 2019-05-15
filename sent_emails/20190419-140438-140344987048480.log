@@ -1,0 +1,12 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: davidjlemay@gmail.com
+Date: Fri, 19 Apr 2019 14:04:38 -0000
+Message-ID: <155568267822.23941.5421810920408160471@davidlemay-thinkpad>
+
+Someone asked for password reset for email davidjlemay@gmail.com. Follow the link below:
+http://127.0.0.1:8000/users/reset/MQ/55m-3ffbd3114e30bc8ea93b/
+-------------------------------------------------------------------------------

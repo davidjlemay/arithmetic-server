@@ -1,10 +1,37 @@
-from django.shortcuts import render
+from rest_framework.decorators import api_view
+from django.http import HttpResponse, JsonResponse
+from django.views.decorators.csrf import ensure_csrf_cookie
+from rest_framework.parsers import JSONParser
+from operations.models import Question
+from serializers import QuestionSerializer
 
-# Create your views here.
-# This is the simplest view possible in Django. 
-# To call the view, we need to map it to a URL - and for this we need a URLconf.
+from operations.models import Question
+from rest_framework import generics
+from operations.serializers import QuestionSerializer
 
-from django.http import HttpResponse
+# Custom sign-up view
 
-def index(request):
-  return HttpResponse("Hello, world. You're at the operations module.")
+class QuestionDetail(generics.RetrieveAPIView):
+    queryset = Question.objects.all()
+    serializer_class = QuestionSerializer
+'''
+@ensure_csrf_cookie([''])
+def public(request):
+  """
+  Get question, or create new question.
+  """
+  if request.method == 'GET':
+    questions = Question.objects.all()
+    serializer = QuestionSerializer(questions, many=True)
+    return JsonResponse(serializer.data, safe=False)
+
+@api_view(['POST'])
+def question_save(request):
+  if request.method == 'POST':
+    data = JSONParser().parse(request)
+    serializer = QuestionSerializer(data=data)
+    if serializer.is_valid():
+      serializer.save()
+      return JsonResponse(serializer.data, status=201)
+  return JsonResponse(serializer.errors, status=400)
+  '''
